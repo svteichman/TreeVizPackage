@@ -1,0 +1,12 @@
+Package: TreeVizPackage
+Title: Tree Visualization Package 
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sarah",
+           family = "Teichman",
+           role = c("aut", "cre"),
+           email = "teichs@uw.edu")
+Description: Implements functions to use for phylogenetic tree visualization. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
