@@ -10,6 +10,8 @@
 #' @param y_dim The name of the variable within the dataframe that specifies the value on the y axis.
 #' @param show_legend A boolean about whether or not to show a legend.
 #' @param legend_lab A label for the legend (NULL if not specified).
+#' @param scales_arg An optional argument about whether the scales should be fixed or free. Set to
+#' free by default.
 #'
 #' @return A ggplot2 object.
 #' @import ggplot2
@@ -20,14 +22,14 @@
 plot_MDS <- function(df, consensus = NULL, group = NULL,
                      title = "MDS of Gene Tree Distances",
                      x_dim = "scale_x_dim", y_dim = "scale_y_dim",
-                     show_legend = FALSE, legend_lab = NULL) {
+                     show_legend = FALSE, legend_lab = NULL, scales_arg = "free") {
   gene_trees <- df %>% filter(tree_type == "gene")
   cons_tree <- df %>% filter(tree_type != "gene")
   if (is.null(group)) {
     plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim))) +
       geom_point(color = "black") +
       geom_point(data = cons_tree, color = "red") +
-      facet_wrap(~method, scales = "free") +
+      facet_wrap(~method, scales = scales_arg) +
       ggtitle(title) +
       xlab("MDS Dimension 1") +
       ylab("MDS Dimension 2") +

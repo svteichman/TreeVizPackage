@@ -13,7 +13,8 @@ plot_MDS(
   x_dim = "scale_x_dim",
   y_dim = "scale_y_dim",
   show_legend = FALSE,
-  legend_lab = NULL
+  legend_lab = NULL,
+  scales_arg = "free"
 )
 }
 \arguments{
@@ -33,6 +34,9 @@ if so the name of the consensus tree.}
 \item{show_legend}{A boolean about whether or not to show a legend.}
 
 \item{legend_lab}{A label for the legend (NULL if not specified).}
+
+\item{scales_arg}{An optional argument about whether the scales should be fixed or free. Set to
+free by default.}
 }
 \value{
 A ggplot2 object.
