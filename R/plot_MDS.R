@@ -16,7 +16,7 @@
 #' @return A ggplot2 object.
 #' @import ggplot2
 #' @import dplyr
-#' @import magrittr
+#'
 #'
 #' @export
 plot_MDS <- function(df, consensus = NULL, group = NULL,

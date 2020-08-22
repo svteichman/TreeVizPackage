@@ -6,7 +6,8 @@
 #' @param branch_support A list of branch support values for each internal branch of main_tree.
 #'
 #' @return A ggtree object.
-#' @import magrittr
+#'
+#' @import ggtree
 #'
 #' @export
 plot_support <- function(main_tree, n_trees, branch_support) {
@@ -14,9 +15,9 @@ plot_support <- function(main_tree, n_trees, branch_support) {
   support_val <- round(c(rep(n_trees,(n_tips + 2)),branch_support)/n_trees,2)
   support_lab <- paste0(support_val)
   plot <- main_tree %>%
-    ggtree::ggtree +
-    ggtree::geom_tiplab(size = 2) +
-    ggtree::geom_text2(aes(subset=!isTip, label=support_lab, color = support_val),
+    ggtree +
+    geom_tiplab(size = 2) +
+    geom_text2(aes(subset=!isTip, label=support_lab, color = support_val),
                hjust=1, vjust = -0.7, size = 2) +
     scale_colour_gradient(low = "red", high = "blue") +
     theme(legend.position = 'none')

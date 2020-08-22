@@ -7,8 +7,8 @@
 #'
 #' @return A list containing the number of distinct topologies and a dataframe with topology
 #' information.
-#' @import dplyr
-#' @import magrittr
+#'
+#'
 #'
 #' @export
 count_topologies <- function(trees, names = NULL) {

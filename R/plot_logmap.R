@@ -8,7 +8,7 @@
 #' to identify trees.
 #'
 #' @return A ggplot object.
-#' @import ggplot2
+#'
 #'
 #' @export
 plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names = NULL) {

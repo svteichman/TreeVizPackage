@@ -10,7 +10,7 @@
 #'
 #' @return A scaled version of the original dataframe.
 #' @import dplyr
-#' @import magrittr
+#' @importFrom magrittr "%>%"
 #'
 #' @export
 scale_MDS <- function(df, n, group_var = "method", x_dim = "MDS1", y_dim = "MDS2") {
