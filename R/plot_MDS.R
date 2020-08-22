@@ -38,7 +38,7 @@ plot_MDS <- function(df, consensus = NULL, group = NULL,
   else {
     legend_pos = "none"
     if (show_legend) { legend_pos = "right"}
-    scale_df[,group] <- as.factor(scale_df[,group])
+    gene_trees[,group] <- as.factor(gene_trees[,group])
     plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
       geom_point() +
       scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
