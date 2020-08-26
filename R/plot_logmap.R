@@ -16,10 +16,10 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
   if (is.null(gene_names)) {
     gene_names <- 1:(nrow(vectors)-1)
   }
-  n <- dim(gene_names)[1] + 1
+  n <- length(gene_names) + 1
   pca_gene <- data.frame(dim1 = pca$x[2:n,1],
                          dim2 = pca$x[2:n,2],
-                         name = gene_names$x)
+                         name = gene_names)
   pca_consen <- data.frame(dim1 = pca$x[1,1],
                            dim2 = pca$x[1,2],
                            name = paste0(cons_name," Tree"))
