@@ -17,8 +17,8 @@ compute_logmap <- function(cons_path, tree_paths, jar_path, other_cons_path = NU
                  stdout = T)
   eval(parse(text=res[length(res)]))
   n <- length(tree_paths) # number of trees
-  logMap_dists <- matrix(nrow = n, ncol = length(logMap))
-  if (!is.null(other_cons_path)) {logMap_dists <- matrix(nrow = n+1, ncol = length(logMap))}
+  logMap_dists <- matrix(nrow = (n+1), ncol = length(logMap))
+  if (!is.null(other_cons_path)) {logMap_dists <- matrix(nrow = n+2, ncol = length(logMap))}
   logMap_dists[1,] <- logMap
 
   for (i in 2:(n+1)) {
