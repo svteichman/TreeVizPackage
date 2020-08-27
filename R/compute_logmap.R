@@ -21,7 +21,7 @@ compute_logmap <- function(cons_path, tree_paths, jar_path, other_cons_path = NU
   if (!is.null(other_cons_path)) {logMap_dists <- matrix(nrow = n+1, ncol = length(logMap))}
   logMap_dists[1,] <- logMap
 
-  for (i in 2:n) {
+  for (i in 2:(n+1)) {
     res <- system2('java',
                    args = c('-jar', jar_path,
                             cons_path,
