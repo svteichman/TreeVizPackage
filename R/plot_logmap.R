@@ -43,7 +43,7 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
                           values =c('black'='black','green' = 'green','red'='red'),
                           labels = c('Gene Tree',other_cons_name, cons_name))
     theme(plot.title = element_text(hjust = 0.5, size = 12)) +
-      xlab("First Principal Component") + ylab("Second Principal Componenet")
+      xlab("First Principal Component") + ylab("Second Principal Component")
   }
   return(list(df = rbind(pca_gene, pca_consen), plot = pca_plot))
 }

@@ -1,5 +1,6 @@
-#' Classical MDS of six difference tree distances
-#' Performs Classical MDS for a set of trees using six different distances. Add names and references later.
+#' Distance MDS of six difference tree distances
+#' Performs distance MDS for a set of trees using six different distances with the SMACOF algorithm.
+#'  Add names and references later.
 #'
 #' @param trees A list of phylogenetic trees. If list includes a consensus tree, it should be the
 #' first tree.
@@ -13,26 +14,32 @@
 #'  each distance.
 #'
 #' @export
-perform_MDS <- function(trees, tree_names = NULL, consensus = NULL) {
+perform_smacof <- function(trees, tree_names = NULL, consensus = NULL) {
   n <- length(trees)
   BHV <- treespace::treespace(trees, method = "BHV", nf = 2)
-  BHV_MDS1 <- BHV$pco$tab$A1
-  BHV_MDS2 <- BHV$pco$tab$A2
+  BHV_MDS <- smacof::mds(BHV$D)
+  BHV_MDS1 <- BHV_MDS$conf[,1]
+  BHV_MDS2 <- BHV_MDS$conf[,2]
   KC <- treespace::treespace(trees, method = "treeVec", nf = 2)
-  KC_MDS1 <- KC$pco$tab$A1
-  KC_MDS2 <- KC$pco$tab$A2
+  KC_MDS <- smacof::mds(KC$D)
+  KC_MDS1 <- KC_MDS$conf[,1]
+  KC_MDS2 <- KC_MDS$conf[,2]
   KF <- treespace::treespace(trees, method = "KF", nf = 2)
-  KF_MDS1 <- KF$pco$tab$A1
-  KF_MDS2 <- KF$pco$tab$A2
+  KF_MDS <- smacof::mds(KF$D)
+  KF_MDS1 <- KF_MDS$conf[,1]
+  KF_MDS2 <- KF_MDS$conf[,2]
   nNodes <- treespace::treespace(trees, method = "nNodes", nf = 2)
-  nNodes_MDS1 <- nNodes$pco$tab$A1
-  nNodes_MDS2 <- nNodes$pco$tab$A2
+  nNodes_MDS <- smacof::mds(nNodes$D)
+  nNodes_MDS1 <- nNodes_MDS$conf[,1]
+  nNodes_MDS2 <- nNodes_MDS$conf[,2]
   Patristic <- treespace::treespace(trees, method = "patristic", nf = 2)
-  Patristic_MDS1 <- Patristic$pco$tab$A1
-  Patristic_MDS2 <- Patristic$pco$tab$A2
+  Patristic_MDS <- smacof::mds(Patristic$D)
+  Patristic_MDS1 <- Patristic_MDS$conf[,1]
+  Patristic_MDS2 <- Patristic_MDS$conf[,2]
   RF <- treespace::treespace(trees, method = "RF", nf = 2)
-  RF_MDS1 <- RF$pco$tab$A1
-  RF_MDS2 <- RF$pco$tab$A2
+  RF_MDS <- smacof::mds(RF$D)
+  RF_MDS1 <- RF_MDS$conf[,1]
+  RF_MDS2 <- RF_MDS$conf[,2]
   plot_df <- data.frame(MDS1 = c(BHV_MDS1, KC_MDS1, KF_MDS1,
                                  nNodes_MDS1, Patristic_MDS1, RF_MDS1),
                         MDS2 = c(BHV_MDS2, KC_MDS2, KF_MDS2,
