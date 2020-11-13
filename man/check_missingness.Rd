@@ -5,12 +5,14 @@
 \title{Check missingness
 Compute the proportion of missingness for each genome and gene combination.}
 \usage{
-check_missingness(gene_names, tip_names)
+check_missingness(gene_names, tip_names, path = "")
 }
 \arguments{
 \item{gene_names}{A list of names of genes.}
 
 \item{tip_names}{A list of names of genomes (tips of the phylogeny).}
+
+\item{path}{The path to the fasta file.}
 }
 \value{
 A matrix with the proportion of missingness for each genome and gene combination.
