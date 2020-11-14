@@ -2,6 +2,7 @@
 
 export(check_missingness)
 export(check_support)
+export(compute_geodesic)
 export(compute_logmap)
 export(count_topologies)
 export(perform_MDS)
