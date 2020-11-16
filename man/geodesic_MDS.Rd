@@ -5,7 +5,7 @@
 \title{Geodesic implementation
 Calculates the geodesic distance between each tree}
 \usage{
-geodesic_MDS(tree_path, nf = 2, names = NULL)
+geodesic_MDS(tree_path, nf = 2, names = NULL, consensus = "consensus")
 }
 \arguments{
 \item{tree_path}{The file path to a txt file containing phylogenetic trees in a multiPhylo object.}
