@@ -16,13 +16,13 @@ compute_geodesic <- function(tree_path) {
   geodesic <- read.table("gtp_output.txt")
   system2("rm", args = "gtp_output.txt")
   n_pair <- 1+max(geodesic$V2)
-  dist <- matrix(data = 0, nrow = n_pair, ncol = n_pair)
+  dist_mat <- matrix(data = 0, nrow = n_pair, ncol = n_pair)
   for (i in 1:nrow(geodesic)) {
     a <- geodesic$V1[i]
     b <- geodesic$V2[i]
     val <- geodesic$V3[i]
-    dist[a+1,b+1] <- val
-    dist[b+1,a+1] <- val
+    dist_mat[a+1,b+1] <- val
+    dist_mat[b+1,a+1] <- val
   }
-  return(dist)
+  return(dist_mat)
 }
