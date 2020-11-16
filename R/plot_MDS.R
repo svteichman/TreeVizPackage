@@ -22,7 +22,8 @@
 plot_MDS <- function(df, consensus = NULL, group = NULL,
                      title = "MDS of Gene Tree Distances",
                      x_dim = "scale_x_dim", y_dim = "scale_y_dim",
-                     show_legend = FALSE, legend_lab = NULL, scales_arg = "free") {
+                     show_legend = FALSE, legend_lab = NULL, scales_arg = "free", single_method = FALSE) {
+  if (single_method) { df$method = rep("distance",nrow(df))}
   gene_trees <- df %>% filter(tree_type == "gene")
   cons_tree <- df %>% filter(tree_type != "gene")
   if (is.null(group)) {
