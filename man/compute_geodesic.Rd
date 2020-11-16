@@ -10,6 +10,9 @@ compute_geodesic(tree_path)
 \arguments{
 \item{tree_path}{The file path to a txt file containing phylogenetic trees in a multiPhylo object.}
 }
+\value{
+A matrix containing distances between each tree in the multiPhylo object. Self distances are set to 0.
+}
 \description{
 Geodesic implementation
 Calculates the geodesic distance between each tree
