@@ -5,12 +5,21 @@
 \title{Geodesic implementation
 Calculates the geodesic distance between each tree}
 \usage{
-geodesic_MDS(tree_path, nf = 2, names = NULL, consensus = "consensus")
+geodesic_MDS(
+  tree_path,
+  nf = 2,
+  names = NULL,
+  consensus = "consensus",
+  mds_package = "ade4"
+)
 }
 \arguments{
 \item{tree_path}{The file path to a txt file containing phylogenetic trees in a multiPhylo object.}
 
 \item{nf}{The number of axes in the MDS to keep.}
+
+\item{mds_package}{The default is to run classical MDS using ade4. To change this to metric MDS using the
+package smacof, use the argument mds_package = "smacof".}
 }
 \value{
 A list containing an object 'dist_mat' containing geodesic distances between each phylogenetic tree
