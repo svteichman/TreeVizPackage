@@ -39,7 +39,6 @@ plot_MDS <- function(df, consensus = NULL, group = NULL,
   else {
     legend_pos = "none"
     if (show_legend) { legend_pos = "right"}
-    gene_trees[,group] <- as.factor(gene_trees[,group])
     if (is.numeric(gene_trees[,group])) {
       plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
         geom_point() +
@@ -54,6 +53,7 @@ plot_MDS <- function(df, consensus = NULL, group = NULL,
               legend.position = legend_pos) +
         labs(color = legend_lab)
     } else {
+        gene_trees[,group] <- as.factor(gene_trees[,group])
         plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
         geom_point() +
         scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
