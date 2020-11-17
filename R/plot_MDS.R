@@ -40,18 +40,33 @@ plot_MDS <- function(df, consensus = NULL, group = NULL,
     legend_pos = "none"
     if (show_legend) { legend_pos = "right"}
     gene_trees[,group] <- as.factor(gene_trees[,group])
-    plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
-      geom_point() +
-      scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
-                                    "brown","aquamarine","darkgreen","darkgray","plum")) +
-      geom_point(data = cons_tree, color = "red") +
-      facet_wrap(~method, scales = "free") +
-      ggtitle(title) +
-      xlab("MDS Dimension 1") +
-      ylab("MDS Dimension 2") +
-      theme(plot.title = element_text(hjust = 0.5),
-            legend.position = legend_pos) +
-      labs(color = legend_lab)
+    if (is.numeric(gene_trees[,group])) {
+      plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
+        geom_point() +
+        #scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
+        #                              "brown","aquamarine","darkgreen","darkgray","plum")) +
+        geom_point(data = cons_tree, color = "red") +
+        facet_wrap(~method, scales = "free") +
+        ggtitle(title) +
+        xlab("MDS Dimension 1") +
+        ylab("MDS Dimension 2") +
+        theme(plot.title = element_text(hjust = 0.5),
+              legend.position = legend_pos) +
+        labs(color = legend_lab)
+    } else {
+        plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
+        geom_point() +
+        scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
+                                      "brown","aquamarine","darkgreen","darkgray","plum")) +
+        geom_point(data = cons_tree, color = "red") +
+        facet_wrap(~method, scales = "free") +
+        ggtitle(title) +
+        xlab("MDS Dimension 1") +
+        ylab("MDS Dimension 2") +
+        theme(plot.title = element_text(hjust = 0.5),
+              legend.position = legend_pos) +
+        labs(color = legend_lab)
+    }
   }
   return(plot)
 }
