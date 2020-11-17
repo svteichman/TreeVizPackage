@@ -6,7 +6,7 @@
 #' @param other_cons_name An optional other consensus tree name.
 #' @param gene_names An optional list of gene names. If no names are given, numbers will be used
 #' to identify trees.
-#' @param col An optional variable to color the gene points by.
+#' @param col An optional list of gene attributes to color the points of the scatterplot by.
 #'
 #' @return A ggplot object.
 #'
@@ -32,7 +32,8 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
     theme(plot.title = element_text(hjust = 0.5, size = 12)) +
     xlab("First Principal Component") + ylab("Second Principal Component")
   if (!is.null(col)) {
-    pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = get(col))) +
+    pca_gene$gradient <- col
+    pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
       geom_point() +
       geom_point(data = pca_consen, color = "red") +
       ggtitle(title) + labs(color = "Missingness")

@@ -23,7 +23,7 @@ plot_logmap(
 \item{gene_names}{An optional list of gene names. If no names are given, numbers will be used
 to identify trees.}
 
-\item{col}{An optional variable to color the gene points by.}
+\item{col}{An optional list of gene attributes to color the points of the scatterplot by.}
 }
 \value{
 A ggplot object.
