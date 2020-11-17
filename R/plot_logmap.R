@@ -39,6 +39,7 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
       ggtitle(title) + labs(color = "Missingness")
       theme(plot.title = element_text(hjust = 0.5, size = 12)) +
       xlab("First Principal Component") + ylab("Second Principal Component")
+    pca_consen$gradient <- NA
   }
   if (!is.null(other_cons_name)) {
     pca_consen1 <- data.frame(dim1 = pca$x[n+1,1],
