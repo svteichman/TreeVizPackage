@@ -14,7 +14,8 @@ plot_MDS(
   y_dim = "scale_y_dim",
   show_legend = FALSE,
   legend_lab = NULL,
-  scales_arg = "free"
+  scales_arg = "free",
+  single_method = FALSE
 )
 }
 \arguments{

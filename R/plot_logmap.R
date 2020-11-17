@@ -6,12 +6,13 @@
 #' @param other_cons_name An optional other consensus tree name.
 #' @param gene_names An optional list of gene names. If no names are given, numbers will be used
 #' to identify trees.
+#' @param col An optional variable to color the gene points by.
 #'
 #' @return A ggplot object.
 #'
 #'
 #' @export
-plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names = NULL) {
+plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names = NULL, col = NULL) {
   pca <- stats::prcomp(vectors, rank. = 2)
   if (is.null(gene_names)) {
     gene_names <- 1:(nrow(vectors)-1)
@@ -29,7 +30,15 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
     geom_point(data = pca_consen, color = "red") +
     ggtitle(title) +
     theme(plot.title = element_text(hjust = 0.5, size = 12)) +
-    xlab("First Principal Component") + ylab("Second Principal Componenet")
+    xlab("First Principal Component") + ylab("Second Principal Component")
+  if (!is.null(col)) {
+    pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = get(col))) +
+      geom_point() +
+      geom_point(data = pca_consen, color = "red") +
+      ggtitle(title) + labs(color = "Missingness")
+      theme(plot.title = element_text(hjust = 0.5, size = 12)) +
+      xlab("First Principal Component") + ylab("Second Principal Component")
+  }
   if (!is.null(other_cons_name)) {
     pca_consen1 <- data.frame(dim1 = pca$x[n+1,1],
                               dim2 = pca$x[n+1,2],

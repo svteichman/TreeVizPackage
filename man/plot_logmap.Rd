@@ -5,7 +5,13 @@
 \title{Plot logmap
 Plot logmap coordinates using the first two principal components.}
 \usage{
-plot_logmap(vectors, cons_name, other_cons_name = NULL, gene_names = NULL)
+plot_logmap(
+  vectors,
+  cons_name,
+  other_cons_name = NULL,
+  gene_names = NULL,
+  col = NULL
+)
 }
 \arguments{
 \item{vectors}{A matrix of logmap vectors for each tree.}
@@ -16,6 +22,8 @@ plot_logmap(vectors, cons_name, other_cons_name = NULL, gene_names = NULL)
 
 \item{gene_names}{An optional list of gene names. If no names are given, numbers will be used
 to identify trees.}
+
+\item{col}{An optional variable to color the gene points by.}
 }
 \value{
 A ggplot object.
