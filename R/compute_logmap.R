@@ -3,18 +3,28 @@
 #'
 #' @param cons_path The file path to the tree to center the log map.
 #' @param tree_paths A list of file paths to all other trees.
-#' @param jar_path A file path to the jar file to compute the log map.
+#' @param jar_path A optional file path to the jar file to compute the log map. Otherwise, the logmap.jar file
+#' in the TreeVizPackage repo will be used.
 #' @param other_cons_path An optional other consensus tree.
 #'
 #' @return A matrix with log map positions of all trees.
 #'
 #' @export
-compute_logmap <- function(cons_path, tree_paths, jar_path, other_cons_path = NULL) {
-  res <- system2('java',
-                 args = c('-jar', jar_path,
-                          cons_path,
-                          cons_path),
-                 stdout = T)
+compute_logmap <- function(cons_path, tree_paths, jar_path = NULL, other_cons_path = NULL) {
+  code_path <- system.file("java", "logmap.jar", package = "TreeVizPackage")
+  if (is.null(jar_path)) {
+    res <- system2('java',
+                   args = c('-jar', code_path,
+                            cons_path,
+                            cons_path),
+                   stdout = T)
+  } else {
+    res <- system2('java',
+                   args = c('-jar', jar_path,
+                            cons_path,
+                            cons_path),
+                   stdout = T)
+  }
   eval(parse(text=res[length(res)]))
   n <- length(tree_paths) # number of trees
   logMap_dists <- matrix(nrow = (n+1), ncol = length(logMap))

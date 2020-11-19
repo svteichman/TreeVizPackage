@@ -5,14 +5,15 @@
 \title{Compute logmap
 Compute the logmap centered at one tree for all other trees.}
 \usage{
-compute_logmap(cons_path, tree_paths, jar_path, other_cons_path = NULL)
+compute_logmap(cons_path, tree_paths, jar_path = NULL, other_cons_path = NULL)
 }
 \arguments{
 \item{cons_path}{The file path to the tree to center the log map.}
 
 \item{tree_paths}{A list of file paths to all other trees.}
 
-\item{jar_path}{A file path to the jar file to compute the log map.}
+\item{jar_path}{A optional file path to the jar file to compute the log map. Otherwise, the logmap.jar file
+in the TreeVizPackage repo will be used.}
 
 \item{other_cons_path}{An optional other consensus tree.}
 }
