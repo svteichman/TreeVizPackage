@@ -18,7 +18,7 @@ count_tips <- function(tree) {
       num <- length(adephylo::listTips(tree)[[ind]])
     }
   } else if (class(tree) == "multiPhylo") {
-    for (i in 1:length(temp_tree)) {
+    for (i in 1:length(tree)) {
       temp_tree <- tree[[i]]
       long_branch <- which.max(temp_tree$edge.length)
       branch_node <- temp_tree$edge[long_branch,2]
