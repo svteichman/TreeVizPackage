@@ -8,10 +8,11 @@ Counts the number of tips that are children of the longest branch}
 count_tips(tree)
 }
 \arguments{
-\item{tree}{A phylo object.}
+\item{tree}{A phylo or multiphylo object.}
 }
 \value{
-The number of tips that are children of the longest branch.
+The number of tips that are children of the longest branch of a single tree (for a phylo object) and
+a vector of the number of tips that are children of the longest branch of each tree (for a multiPhylo object).
 }
 \description{
 Count tips
