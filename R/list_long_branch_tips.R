@@ -24,10 +24,10 @@ list_long_branch_tips <- function(tree) {
       long_branch <- which.max(temp_tree$edge.length)
       branch_node <- temp_tree$edge[long_branch,2]
       if (branch_node <= length(temp_tree$tip.label)) {
-        tips <- c(tips,list(tree$tip.label[branch_node]))
+        tips[[i]] <- list(temp_tree$tip.label[branch_node])
       } else {
         ind <- branch_node - length(temp_tree$tip.label)
-        tips <- c(tips, adephylo::listTips(temp_tree)[[ind]])
+        tips[[i]] <- list(adephylo::listTips(temp_tree)[[ind]])
       }
     }
   } else {tips = NA}
