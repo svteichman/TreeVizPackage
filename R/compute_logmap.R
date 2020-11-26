@@ -11,10 +11,10 @@
 #'
 #' @export
 compute_logmap <- function(cons_path, tree_paths, jar_path = NULL, other_cons_path = NULL) {
-  code_path <- system.file("java", "logmap.jar", package = "TreeVizPackage")
   if (is.null(jar_path)) {
+    jar_path <- system.file("java", "logmap.jar", package = "TreeVizPackage")
     res <- system2('java',
-                   args = c('-jar', code_path,
+                   args = c('-jar', jar_path,
                             cons_path,
                             cons_path),
                    stdout = T)
