@@ -22,7 +22,7 @@ compute_logmap(
 \item{jar_path}{A optional file path to the jar file to compute the log map. Otherwise,
 the logmap.jar file in the TreeVizPackage repo will be used.}
 
-\item{other_cons_path}{An optional other consensus tree.}
+\item{other_cons_path}{An optional additional consensus tree to plot.}
 
 \item{add_pendant_branches}{A boolean. When true, the pendant branch lengths will be added
 to the log map coordinates.}
@@ -30,7 +30,7 @@ to the log map coordinates.}
 \item{cons_tree}{The consensus tree. This is required when \code{add_pendant_branches = TRUE}.}
 }
 \value{
-A matrix with log map positions of all trees.
+A matrix with log map coordinates for all trees.
 }
 \description{
 Compute logmap
