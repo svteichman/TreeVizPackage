@@ -5,7 +5,7 @@
 #' @param tree_paths A list of file paths to all other trees.
 #' @param jar_path A optional file path to the jar file to compute the log map. Otherwise,
 #' the logmap.jar file in the TreeVizPackage repo will be used.
-#' @param other_cons_path An optional additional consensus tree.
+#' @param other_cons_path An optional additional consensus tree to plot.
 #' @param add_pendant_branches A boolean. When true, the pendant branch lengths will be added
 #' to the log map coordinates.
 #' @param cons_tree The consensus tree. This is required when \code{add_pendant_branches = TRUE}.
