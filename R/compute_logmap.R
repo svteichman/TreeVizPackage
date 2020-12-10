@@ -10,7 +10,7 @@
 #' to the log map coordinates.
 #' @param cons_tree The consensus tree. This is required when \code{add_pendant_branches = TRUE}.
 #'
-#' @return A matrix with log map positions of all trees.
+#' @return A matrix with log map coordinates for all trees.
 #'
 #' @export
 compute_logmap <- function(cons_path, tree_paths, jar_path = NULL, other_cons_path = NULL,

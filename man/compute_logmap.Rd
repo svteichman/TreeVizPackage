@@ -30,7 +30,7 @@ to the log map coordinates.}
 \item{cons_tree}{The consensus tree. This is required when \code{add_pendant_branches = TRUE}.}
 }
 \value{
-A matrix with log map positions of all trees.
+A matrix with log map coordinates for all trees.
 }
 \description{
 Compute logmap
