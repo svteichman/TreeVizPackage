@@ -12,6 +12,7 @@
 #' @param legend_lab A label for the legend (NULL if not specified).
 #' @param scales_arg An optional argument about whether the scales should be fixed or free. Set to
 #' free by default.
+#' @param gene_names An optional variable to label genes by.
 #'
 #' @return A ggplot2 object.
 #' @import ggplot2
@@ -22,12 +23,14 @@
 plot_MDS <- function(df, consensus = NULL, group = NULL,
                      title = "MDS of Gene Tree Distances",
                      x_dim = "scale_x_dim", y_dim = "scale_y_dim",
-                     show_legend = FALSE, legend_lab = NULL, scales_arg = "free", single_method = FALSE) {
+                     show_legend = FALSE, legend_lab = NULL, scales_arg = "free",
+                     single_method = FALSE, gene_names = NULL) {
   if (single_method) { df$method = rep("distance",nrow(df))}
+  if (is.null(gene_names)) {gene_names = x_dim}
   gene_trees <- df %>% filter(tree_type == "gene")
   cons_tree <- df %>% filter(tree_type != "gene")
   if (is.null(group)) {
-    plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim))) +
+    plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), name = get(gene_names))) +
       geom_point(color = "black") +
       geom_point(data = cons_tree, color = "red") +
       facet_wrap(~method, scales = scales_arg) +
@@ -40,7 +43,8 @@ plot_MDS <- function(df, consensus = NULL, group = NULL,
     legend_pos = "none"
     if (show_legend) { legend_pos = "right"}
     if (is.numeric(gene_trees[,group])) {
-      plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
+      plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group),
+                                     name = get(gene_names))) +
         geom_point() +
         #scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
         #                              "brown","aquamarine","darkgreen","darkgray","plum")) +
@@ -54,7 +58,8 @@ plot_MDS <- function(df, consensus = NULL, group = NULL,
         labs(color = legend_lab)
     } else {
         gene_trees[,group] <- as.factor(gene_trees[,group])
-        plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group))) +
+        plot <- ggplot(gene_trees, aes(x = get(x_dim), y = get(y_dim), color = get(group),
+                                       name = get(gene_names))) +
         geom_point() +
         scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
                                       "brown","aquamarine","darkgreen","darkgray","plum")) +
