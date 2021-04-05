@@ -5,7 +5,7 @@
 \title{Plot support
 Plot a tree with support values on each internal branch.}
 \usage{
-plot_support(main_tree, n_trees, branch_support)
+plot_support(main_tree, n_trees, branch_support, rooted = TRUE)
 }
 \arguments{
 \item{main_tree}{A tree to check support for.}
@@ -13,6 +13,8 @@ plot_support(main_tree, n_trees, branch_support)
 \item{n_trees}{The number of trees providing support for main_tree.}
 
 \item{branch_support}{A list of branch support values for each internal branch of main_tree.}
+
+\item{rooted}{A boolean, TRUE if the main tree is rooted}
 }
 \value{
 A ggtree object.
