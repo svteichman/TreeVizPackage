@@ -47,7 +47,7 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa") {
   }
 
   # get target genes from presence mat
-  target_genes <- which(rowSums(!presence) == 0)
+  target_genes <- gene_names[which(rowSums(!presence) == 0)]
 
   return(list(target = target_genes, presence = presence))
 }
