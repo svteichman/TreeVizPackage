@@ -40,7 +40,7 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa") {
     }
 
     # check if each line is filled with dashes
-    gene_res <- readLines(curr_fasta) == paste0(rep("-", curr_alignment_length), collapse = "")
+    gene_res <- readLines(curr_fasta) != paste0(rep("-", curr_alignment_length), collapse = "")
     # take the even numbered lines (that contain alignment data)
     presence[i,] <- gene_res[seq(2, length(gene_res), 2)]
 
@@ -49,5 +49,5 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa") {
   # get target genes from presence mat
   target_genes <- which(rowSums(!presence) > 0)
 
-  return(list(target = target_genes, presence = presence))
+  return(list(target = target_genes, presence = targpresence))
 }
