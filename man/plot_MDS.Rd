@@ -40,6 +40,8 @@ if so the name of the consensus tree.}
 \item{scales_arg}{An optional argument about whether the scales should be fixed or free. Set to
 free by default.}
 
+\item{single_method}{True if the dataframe only includes data from a single distance metric.}
+
 \item{gene_names}{An optional variable to label genes by.}
 }
 \value{

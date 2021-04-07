@@ -12,6 +12,7 @@
 #' @param legend_lab A label for the legend (NULL if not specified).
 #' @param scales_arg An optional argument about whether the scales should be fixed or free. Set to
 #' free by default.
+#' @param single_method True if the dataframe only includes data from a single distance metric.
 #' @param gene_names An optional variable to label genes by.
 #'
 #' @return A ggplot2 object.

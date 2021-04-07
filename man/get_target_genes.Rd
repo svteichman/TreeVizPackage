@@ -15,7 +15,8 @@ get_target_genes(gene_names, path = "", tail = ".fa")
 \item{tail}{The extension to the gene alignments, default is ".fa}
 }
 \value{
-A subset of the gene_names list only including names of genes without missingness.
+A list containing a subset of the gene_names list only including names of genes without
+missingness and the full presence matrix.
 }
 \description{
 Lists genes without missingness

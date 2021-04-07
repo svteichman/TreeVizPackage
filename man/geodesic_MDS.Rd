@@ -18,6 +18,10 @@ geodesic_MDS(
 
 \item{nf}{The number of axes in the MDS to keep.}
 
+\item{names}{Optional tree names to use.}
+
+\item{consensus}{Optional name of the consensus tree.}
+
 \item{mds_package}{The default is to run classical MDS using ade4. To change this to metric MDS using the
 package smacof, use the argument mds_package = "smacof".}
 }
