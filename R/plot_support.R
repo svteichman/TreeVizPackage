@@ -25,7 +25,7 @@ plot_support <- function(main_tree, n_trees, branch_support, rooted = TRUE,
     ggtree +
     geom_tiplab(size = lab_size) +
     geom_text2(aes(subset=!isTip, label=support_lab, color = support_val),
-               hjust=1, vjust = -0.7, size = supp__size) +
+               hjust=1, vjust = -0.7, size = supp_size) +
     scale_colour_gradient(low = "red", high = "blue") +
     theme(legend.position = 'none') +
     ggplot2::xlim(0, xlim_max)
