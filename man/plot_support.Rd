@@ -5,7 +5,15 @@
 \title{Plot support
 Plot a tree with support values on each internal branch.}
 \usage{
-plot_support(main_tree, n_trees, branch_support, rooted = TRUE)
+plot_support(
+  main_tree,
+  n_trees,
+  branch_support,
+  rooted = TRUE,
+  lab_size = 2,
+  supp_size = 2,
+  xlim_max = 0.5
+)
 }
 \arguments{
 \item{main_tree}{A tree to check support for.}
@@ -15,6 +23,12 @@ plot_support(main_tree, n_trees, branch_support, rooted = TRUE)
 \item{branch_support}{A list of branch support values for each internal branch of main_tree.}
 
 \item{rooted}{A boolean, TRUE if the main tree is rooted}
+
+\item{lab_size}{The size of the tip labels, default is 2.}
+
+\item{supp_size}{The size of the support labels, default is 2.}
+
+\item{xlim_max}{The length of the x axis.}
 }
 \value{
 A ggtree object.
