@@ -9,12 +9,15 @@
 #' @param add_pendant_branches A boolean. When true, the pendant branch lengths will be added
 #' to the log map coordinates.
 #' @param cons_tree The consensus tree. This is required when \code{add_pendant_branches = TRUE}.
+#' @param trees_complete Complete list of trees in a multiPhylo object including the base tree.
+#'This is required when \code{add_pendant_branches = TRUE}.
 #'
 #' @return A matrix with log map coordinates for all trees.
 #'
 #' @export
 compute_logmap <- function(cons_path, tree_paths, jar_path = NULL, other_cons_path = NULL,
-                           add_pendant_branches = FALSE, cons_tree = NULL) {
+                           add_pendant_branches = FALSE, cons_tree = NULL,
+                           trees_complete = NULL) {
   if (is.null(jar_path)) {
     jar_path <- system.file("java", "logmap.jar", package = "TreeVizPackage")
     res <- system2('java',

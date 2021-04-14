@@ -11,7 +11,8 @@ compute_logmap(
   jar_path = NULL,
   other_cons_path = NULL,
   add_pendant_branches = FALSE,
-  cons_tree = NULL
+  cons_tree = NULL,
+  trees_complete = NULL
 )
 }
 \arguments{
@@ -28,6 +29,9 @@ the logmap.jar file in the TreeVizPackage repo will be used.}
 to the log map coordinates.}
 
 \item{cons_tree}{The consensus tree. This is required when \code{add_pendant_branches = TRUE}.}
+
+\item{trees_complete}{Complete list of trees in a multiPhylo object including the base tree.
+This is required when \code{add_pendant_branches = TRUE}.}
 }
 \value{
 A matrix with log map coordinates for all trees.
