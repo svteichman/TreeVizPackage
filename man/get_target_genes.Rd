@@ -5,7 +5,13 @@
 \title{Lists genes without missingness
 Takes a list of genes and returns the list with genes removed that are missing one or more tips.}
 \usage{
-get_target_genes(gene_names, path = "", tail = ".fa")
+get_target_genes(
+  gene_names,
+  path = "",
+  tail = ".fa",
+  exclude_outgroup = FALSE,
+  outgroup = NULL
+)
 }
 \arguments{
 \item{gene_names}{A list of gene names that correspond with alignments to examine}
@@ -13,6 +19,11 @@ get_target_genes(gene_names, path = "", tail = ".fa")
 \item{path}{The file path to the gene alignments, default is "}
 
 \item{tail}{The extension to the gene alignments, default is ".fa}
+
+\item{exclude_outgroup}{Binary variable, if true target genes will not need to be in the
+outgroup genome.}
+
+\item{outgroup}{Name of the outgroup, required if \code{exclude_outgroup = T}.}
 }
 \value{
 A list containing a subset of the gene_names list only including names of genes without
