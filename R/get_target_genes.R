@@ -33,7 +33,7 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa", exclude_outgro
       stop("Please include outgroup name.")
     }
     outgroup_ind <- which(tip_names == outgroup)
-    if (length(outgroup_ind == 0)) {
+    if (length(outgroup_ind) == 0) {
       stop("Please enter an outgroup that appears in your data.")
     }
   }
