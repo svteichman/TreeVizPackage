@@ -10,7 +10,9 @@ plot_logmap(
   cons_name,
   other_cons_name = NULL,
   gene_names = NULL,
-  col = NULL
+  col = NULL,
+  col_name = NULL,
+  show_legend = TRUE
 )
 }
 \arguments{
@@ -24,6 +26,10 @@ plot_logmap(
 to identify trees.}
 
 \item{col}{An optional list of gene attributes to color the points of the scatterplot by.}
+
+\item{col_name}{An optional name for the color attribute}
+
+\item{show_legend}{If true, the color legend is shown, if false it is hidden.}
 }
 \value{
 A ggplot object.

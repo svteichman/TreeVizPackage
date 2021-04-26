@@ -7,12 +7,15 @@
 #' @param gene_names An optional list of gene names. If no names are given, numbers will be used
 #' to identify trees.
 #' @param col An optional list of gene attributes to color the points of the scatterplot by.
+#' @param col_name An optional name for the color attribute
+#' @param show_legend If true, the color legend is shown, if false it is hidden.
 #'
 #' @return A ggplot object.
 #'
 #'
 #' @export
-plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names = NULL, col = NULL) {
+plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names = NULL, col = NULL,
+                        col_name = NULL, show_legend = TRUE) {
   pca <- stats::prcomp(vectors, rank. = 2)
   if (is.null(gene_names)) {
     gene_names <- 1:(nrow(vectors)-1)
@@ -32,13 +35,18 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
     theme(plot.title = element_text(hjust = 0.5, size = 12)) +
     xlab("First Principal Component") + ylab("Second Principal Component")
   if (!is.null(col)) {
+    if (is.null(col_name)) {show_legend = FALSE}
+    legend_pos = "none"
+    if (show_legend) { legend_pos = "right"}
     pca_gene$gradient <- col
     pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
       geom_point() +
       geom_point(data = pca_consen, color = "red") +
-      ggtitle(title) + labs(color = "Missingness")
+      ggtitle(title) + labs(color = col_name) +
       theme(plot.title = element_text(hjust = 0.5, size = 12)) +
-      xlab("First Principal Component") + ylab("Second Principal Component")
+      xlab("First Principal Component") + ylab("Second Principal Component") +
+      scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
+                         "brown","aquamarine","darkgreen","darkgray","plum"))
     pca_consen$gradient <- NA
   }
   if (!is.null(other_cons_name)) {
