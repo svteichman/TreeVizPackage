@@ -19,7 +19,7 @@ remove_empty_lines <- function(target_genes, path = "", tail = ".fa",
     if (length(missing_ind) > 0) {
       rm_ind <- c(missing_ind - 1, missing_ind)
       fasta_miss_rm <- fasta_contents[-rm_ind]
-      fileConn <- file(fasta)
+      fileConn <- file(paste0(new_prefix,fasta))
       writeLines(fasta_miss_rm, fileConn)
       close(fileConn)
     }
