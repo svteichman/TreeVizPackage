@@ -7,7 +7,7 @@
 #'
 #'
 #' @export
-remove_empty_lines <- function(target_genes, path = "", tail = ".fa")
+remove_empty_lines <- function(target_genes, path = "", tail = ".fa") {
   for (i in 1:length(genes_miss_out)) {
     fasta <- paste0(path, genes_miss_out[i],tail)
     fasta_contents <- readLines(fasta)
@@ -22,3 +22,5 @@ remove_empty_lines <- function(target_genes, path = "", tail = ".fa")
       close(fileConn)
     }
   }
+}
+
