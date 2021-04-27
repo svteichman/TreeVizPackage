@@ -17,7 +17,7 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa", exclude_outgro
                              outgroup = NULL) {
 
   # initializing the vector we'll fill as we find the good ones
-  target_genes <- vector()
+  #target_genes <- vector()
 
   # get first gene alignment to get number of tips per file and tip names
   first_fasta <- paste0(path, gene_names[1], tail)
@@ -55,10 +55,10 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa", exclude_outgro
     # getting length of current gene's alignment
     curr_alignment_length <- nchar(readLines(curr_fasta, n = 2)[2])
 
-    # adding gene to target gene list if there are no entries that are all gaps
-    if ( ! any(readLines(curr_fasta) == paste0(rep("-", curr_alignment_length), collapse = "")) ) {
-      target_genes <- c(target_genes, curr_gene)
-    }
+    # # adding gene to target gene list if there are no entries that are all gaps
+    # if ( ! any(readLines(curr_fasta) == paste0(rep("-", curr_alignment_length), collapse = "")) ) {
+    #   target_genes <- c(target_genes, curr_gene)
+    # }
 
     # check if each line is filled with dashes
     gene_res <- readLines(curr_fasta) != paste0(rep("-", curr_alignment_length), collapse = "")
