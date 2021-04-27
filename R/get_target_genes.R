@@ -40,6 +40,8 @@ get_target_genes <- function(gene_names, path = "", tail = ".fa", exclude_outgro
 
   # initialize matrix
   presence <- matrix(data = TRUE, nrow = length(gene_names), ncol = num_tips)
+  rownames(presence) <- gene_names
+  colnames(presence) <- tip_names
 
   # iterating through genes
   for ( i in 1:length(gene_names) ) {
