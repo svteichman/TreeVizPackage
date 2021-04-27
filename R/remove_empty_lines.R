@@ -4,10 +4,12 @@
 #' @param target_genes A list of gene names for alignment files to remove empty lines from.
 #' @param path Path to the alignment files.
 #' @param tail Ending of alignment files.
+#' @param new_prefix A prefix to add to modified alignment files.
 #'
 #'
 #' @export
-remove_empty_lines <- function(target_genes, path = "", tail = ".fa") {
+remove_empty_lines <- function(target_genes, path = "", tail = ".fa",
+                               new_prefix = "") {
   for (i in 1:length(genes_miss_out)) {
     fasta <- paste0(path, genes_miss_out[i],tail)
     fasta_contents <- readLines(fasta)

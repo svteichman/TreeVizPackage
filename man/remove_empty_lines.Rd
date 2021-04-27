@@ -5,7 +5,7 @@
 \title{Removes empty lines
 Removes empty lines from a fasta file (so it can be run with IQTREE).}
 \usage{
-remove_empty_lines(target_genes, path = "", tail = ".fa")
+remove_empty_lines(target_genes, path = "", tail = ".fa", new_prefix = "")
 }
 \arguments{
 \item{target_genes}{A list of gene names for alignment files to remove empty lines from.}
@@ -13,6 +13,8 @@ remove_empty_lines(target_genes, path = "", tail = ".fa")
 \item{path}{Path to the alignment files.}
 
 \item{tail}{Ending of alignment files.}
+
+\item{new_prefix}{A prefix to add to modified alignment files.}
 }
 \description{
 Removes empty lines
