@@ -39,15 +39,25 @@ plot_logmap <- function(vectors, cons_name, other_cons_name = NULL, gene_names =
     legend_pos = "none"
     if (show_legend) { legend_pos = "right"}
     pca_gene$gradient <- col
-    pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
-      geom_point() +
-      geom_point(data = pca_consen, color = "red") +
-      ggtitle(title) + labs(color = col_name) +
-      theme(plot.title = element_text(hjust = 0.5, size = 12)) +
-      xlab("First Principal Component") + ylab("Second Principal Component") +
-      scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
-                         "brown","aquamarine","darkgreen","darkgray","plum"))
-    pca_consen$gradient <- NA
+    if (is.numeric(col)) {
+      pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
+        geom_point() +
+        geom_point(data = pca_consen, color = "red") +
+        ggtitle(title) + labs(color = col_name) +
+        theme(plot.title = element_text(hjust = 0.5, size = 12)) +
+        xlab("First Principal Component") + ylab("Second Principal Component")
+      pca_consen$gradient <- NA
+    } else {
+      pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
+        geom_point() +
+        geom_point(data = pca_consen, color = "red") +
+        ggtitle(title) + labs(color = col_name) +
+        theme(plot.title = element_text(hjust = 0.5, size = 12)) +
+        xlab("First Principal Component") + ylab("Second Principal Component") +
+        scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
+                           "brown","aquamarine","darkgreen","darkgray","plum"))
+      pca_consen$gradient <- NA
+    }
   }
   if (!is.null(other_cons_name)) {
     pca_consen1 <- data.frame(dim1 = pca$x[n+1,1],
