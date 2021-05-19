@@ -10,6 +10,7 @@ plot_support(
   n_trees,
   branch_support,
   rooted = TRUE,
+  boot = FALSE,
   lab_size = 2,
   supp_size = 2,
   xlim_max = 0.5
@@ -23,6 +24,8 @@ plot_support(
 \item{branch_support}{A list of branch support values for each internal branch of main_tree.}
 
 \item{rooted}{A boolean, TRUE if the main tree is rooted}
+
+\item{boot}{A logical value, TRUE is the support values are bootstrap support.}
 
 \item{lab_size}{The size of the tip labels, default is 2.}
 

@@ -8,19 +8,25 @@
 #' @param lab_size The size of the tip labels, default is 2.
 #' @param supp_size The size of the support labels, default is 2.
 #' @param xlim_max The length of the x axis.
+#' @param boot A logical value, TRUE is the support values are bootstrap support.
 #'
 #' @return A ggtree object.
 #'
 #' @import ggtree
 #'
 #' @export
-plot_support <- function(main_tree, n_trees, branch_support, rooted = TRUE,
+plot_support <- function(main_tree, n_trees, branch_support, rooted = TRUE, boot = FALSE,
                          lab_size = 2, supp_size = 2, xlim_max = 0.5) {
   n_tips <- length(main_tree$tip.label)
   num <- n_tips + 2
   if (!rooted) {num <- n_tips+1}
   #support_val <- round(c(rep(n_trees,num),branch_support)/n_trees,2)
-  support_val <- round(c(rep(NA,num),branch_support)/n_trees,2)
+  if (!boot) {
+    trans_supp <- round(branch_support/n_trees, 2)
+  } else {
+    trans_supp <- round(as.integer(branch_support)/100, 2)
+  }
+  support_val <- c(rep(NA,num),trans_supp)
   support_lab <- paste0(support_val)
   plot <- main_tree %>%
     ggtree +
