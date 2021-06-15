@@ -7,18 +7,19 @@ Plot logmap coordinates using the first two principal components.}
 \usage{
 plot_logmap(
   vectors,
-  cons_name,
+  base_name,
   other_cons_name = NULL,
   gene_names = NULL,
   col = NULL,
   col_name = NULL,
-  show_legend = TRUE
+  show_legend = TRUE,
+  cons_exists = TRUE
 )
 }
 \arguments{
 \item{vectors}{A matrix of logmap vectors for each tree.}
 
-\item{cons_name}{The name of the consensus tree.}
+\item{base_name}{The name of the base tree in the log map.}
 
 \item{other_cons_name}{An optional other consensus tree name.}
 
@@ -30,6 +31,8 @@ to identify trees.}
 \item{col_name}{An optional name for the color attribute}
 
 \item{show_legend}{If true, the color legend is shown, if false it is hidden.}
+
+\item{cons_exists}{True if plot includes a consensus tree, false if not.}
 }
 \value{
 A ggplot object.
