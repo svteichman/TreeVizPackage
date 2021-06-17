@@ -12,7 +12,8 @@ compute_logmap(
   other_cons_path = NULL,
   add_pendant_branches = FALSE,
   cons_tree = NULL,
-  trees_complete = NULL
+  trees_complete = NULL,
+  cons_in_tree_paths = FALSE
 )
 }
 \arguments{
@@ -32,6 +33,9 @@ to the log map coordinates.}
 
 \item{trees_complete}{Complete list of trees in a multiPhylo object including the base tree.
 This is required when \code{add_pendant_branches = TRUE}.}
+
+\item{cons_in_tree_paths}{A logical value, TRUE if the consensus tree is included in the tree
+paths vector.}
 }
 \value{
 A matrix with log map coordinates for all trees.
