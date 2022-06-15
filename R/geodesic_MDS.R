@@ -24,13 +24,13 @@ geodesic_MDS <- function(tree_path, nf = 2, names = NULL, consensus = "consensus
     df[1, 2] <- consensus
   }
   if (mds_package == "ade4") {
-    pco <- ade4::dudi.pco(as.dist(dist_mat), nf = nf, scannf = "FALSE")
+    pco <- ade4::dudi.pco(stats::as.dist(dist_mat), nf = nf, scannf = "FALSE")
     for (i in 1:nf) {
       df[, i + 2] <- pco$tab[, paste0("A", i)]
     }
   }
   if (mds_package == "smacof") {
-    mds <- smacof::mds(as.dist(dist_mat), ndim = nf)
+    mds <- smacof::mds(stats::as.dist(dist_mat), ndim = nf)
     for (i in 1:nf) {
       df[, i+2] <- mds$conf[,i]
     }

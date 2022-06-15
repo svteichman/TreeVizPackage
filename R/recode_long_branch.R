@@ -9,7 +9,7 @@
 #' @export
 recode_long_branch <- function(trees, branch_length) {
   if (class(trees) == "phylo") {
-    long_branch <- which.max(tree$edge.length)
+    long_branch <- which.max(trees$edge.length)
     trees$edge.length[long_branch] <- branch_length
   } else if (class(trees) == "multiPhylo") {
     for (i in 1:length(trees)) {

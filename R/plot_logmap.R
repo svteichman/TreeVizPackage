@@ -42,14 +42,15 @@ plot_logmap <- function(vectors, base_name, other_cons_name = NULL, gene_names =
       if (show_legend) { legend_pos = "right"}
       pca_gene$gradient <- col
       if (is.numeric(col)) {
+        pca_consen$gradient <- NA
         pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
           geom_point() +
           geom_point(data = pca_consen, color = "red") +
           ggtitle(title) + labs(color = col_name) +
           theme(plot.title = element_text(hjust = 0.5, size = 12)) +
           xlab("First Principal Component") + ylab("Second Principal Component")
-        pca_consen$gradient <- NA
       } else {
+        pca_consen$gradient <- NA
         pca_plot <- ggplot(pca_gene, aes(x = dim1, y = dim2, Gene = name, color = gradient)) +
           geom_point() +
           geom_point(data = pca_consen, color = "red") +
@@ -58,7 +59,7 @@ plot_logmap <- function(vectors, base_name, other_cons_name = NULL, gene_names =
           xlab("First Principal Component") + ylab("Second Principal Component") +
           scale_color_manual(values = c("black","blue","green","purple","yellow","orange","pink",
                                         "brown","aquamarine","darkgreen","darkgray","plum"))
-        pca_consen$gradient <- NA
+
       }
     }
     if (!is.null(other_cons_name)) {

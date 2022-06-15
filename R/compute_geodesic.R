@@ -12,7 +12,7 @@ compute_geodesic <- function(tree_path) {
           args = c('-jar', code_path, "-d", output,
                    tree_path),
           stdout = T)
-  geodesic <- read.table("gtp_output.txt")
+  geodesic <- utils::read.table("gtp_output.txt")
   system2("rm", args = "gtp_output.txt")
   n_pair <- 1+max(geodesic$V2)
   dist_mat <- matrix(data = 0, nrow = n_pair, ncol = n_pair)

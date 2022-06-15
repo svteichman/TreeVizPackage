@@ -11,6 +11,6 @@
 #'
 #' @export
 genes_missing_outgroup <- function(gene_names, presence, outgroup) {
-  miss <- names(which(!presence[target_genes, outgroup]))
+  miss <- names(which(!presence[gene_names, outgroup]))
   return(miss)
 }

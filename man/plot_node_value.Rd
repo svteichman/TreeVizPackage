@@ -8,6 +8,7 @@ Plot a tree with node values on each internal node.}
 plot_node_value(
   main_tree,
   node_lab,
+  n_trees,
   rooted = TRUE,
   lab_size = 2,
   supp_size = 2,
@@ -18,6 +19,8 @@ plot_node_value(
 \item{main_tree}{A tree to check support for.}
 
 \item{node_lab}{A list of node values for each internal node of main_tree.}
+
+\item{n_trees}{The number of trees used to compute \code{node_lab}.}
 
 \item{rooted}{A boolean, TRUE if the main tree is rooted}
 

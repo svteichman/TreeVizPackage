@@ -8,7 +8,6 @@
 #'
 #' @return Nothing, creates a folder in the desired directory.
 #'
-#'
 #' @export
 alignments_to_cat <- function(target_genes, path_from = "", tail = ".fa", path_to = "") {
   dir.create(path_to)
